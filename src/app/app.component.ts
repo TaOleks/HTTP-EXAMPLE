@@ -11,7 +11,9 @@ export class AppComponent {
   constructor (private httpService: HttpService) {}
 
   getPosts() {
-
+this.httpService.getPosts().subscribe(posts =>{
+  console.log(posts)
+})
   }
 getPost(){
 
