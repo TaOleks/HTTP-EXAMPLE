@@ -16,10 +16,14 @@ this.httpService.getPosts().subscribe(posts =>{
 })
   }
 getPost(){
-
+this.httpService.getPost(3).subscribe(post =>{
+  console.log(post)
+})
 }
 getPostByUser() {
-
+this.httpService.getPostByUser(3).subscribe(postsByUser =>{
+  console.log(postsByUser)
+})
 }
 addPost() {
 const post:Post = ({
