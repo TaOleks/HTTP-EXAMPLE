@@ -26,12 +26,12 @@ this.httpService.getPostByUser(3).subscribe(postsByUser =>{
 })
 }
 addPost() {
-const p:Post = ({
+const p:Post = {
   userId: 1,
   id: null,
   title:'Mój post',
   body: 'Pirwszy post o angularze!'
-})
+}
 this.httpService.addPost(p).subscribe(post =>{
   console.log(post)
 })
@@ -41,7 +41,10 @@ const p: Post = ({
   userId: 1,
   id: 1,
   title:'sunt aut facere repellat provident occaecati expecturi op[tio reprehenderit',
-  body: 'owy wpis'
+  body: 'nowy post'
+})
+this.httpService.updatePost(p).subscribe(post =>{
+  console.log(post)
 })
 }
 deletePost() {

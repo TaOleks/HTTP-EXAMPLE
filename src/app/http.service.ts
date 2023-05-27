@@ -29,7 +29,9 @@ export class HttpService {
    return this.http.post<Post>('https://jsonplaceholder.typicode.com/posts', post)
   }
   /**Aktualizujemy/Podmieniamy post */
-  updatePost(post: Post){}
+  updatePost(post: Post):Observable<Post>{
+    return this.http.put('https://jsonplaceholder.typicode.com/posts/' + post.id, post)
+  }
 
   /**Usuwamy post */
   deletePost(id: number){
