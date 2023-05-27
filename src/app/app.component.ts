@@ -16,7 +16,7 @@ this.httpService.getPosts().subscribe(posts =>{
 })
   }
 getPost(){
-this.httpService.getPost(3).subscribe(post =>{
+this.httpService.getPost(2).subscribe(post =>{
   console.log(post)
 })
 }
@@ -26,11 +26,14 @@ this.httpService.getPostByUser(3).subscribe(postsByUser =>{
 })
 }
 addPost() {
-const post:Post = ({
+const p:Post = ({
   userId: 1,
   id: null,
   title:'Mój post',
   body: 'Pirwszy post o angularze!'
+})
+this.httpService.addPost(p).subscribe(post =>{
+  console.log(post)
 })
 }
 updatePost() {
