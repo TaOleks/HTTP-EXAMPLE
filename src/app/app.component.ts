@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpService } from './http.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { retry } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +13,12 @@ export class AppComponent {
   constructor (private httpService: HttpService) {}
 
   getPosts() {
-this.httpService.getPosts().subscribe(posts =>{
+this.httpService.getPosts().pipe(retry(3)).subscribe(posts =>{
   console.log(posts)
+  },
+  (error:HttpErrorResponse) =>{
+    console.log('status this mistake is - '+ error.status);
+    console.log('Check URL one more time :'+error.url )
 })
   }
 getPost(){

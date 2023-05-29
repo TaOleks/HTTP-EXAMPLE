@@ -12,7 +12,7 @@ export class HttpService {
 
   /**Pobieramy wszystkie posty */
   getPosts():Observable<Array<Post>>{
-  return  this.http.get<Array<Post>>('https://jsonplaceholder.typicode.com/posts')
+  return  this.http.get<Array<Post>>('https://jsonplaceholder.typicode.com/xyz')
   }
 
   /**pobieramy jeden post podając id */
