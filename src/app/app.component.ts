@@ -54,8 +54,11 @@ this.httpService.deletePost(1).subscribe(post =>{
 }
 changePost() {
   const p: Post = ({
-    id: 1,
+    id:1,
     body: 'zmieniam tylko wpis',
+  })
+  this.httpService.changePost(p).subscribe(post =>{
+    console.log(post)
   })
 }
 

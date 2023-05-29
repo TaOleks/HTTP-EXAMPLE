@@ -40,6 +40,6 @@ export class HttpService {
 
   /**Actualizuemy pola w post */
   changePost(post: Post){
-
+    return this.http.patch('https://jsonplaceholder.typicode.com/posts/' + post.id, post)
   }
 }
