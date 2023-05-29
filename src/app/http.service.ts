@@ -11,8 +11,8 @@ export class HttpService {
   constructor(private http:HttpClient) { }
 
   /**Pobieramy wszystkie posty */
-  getPosts():Observable<Array<Post>>{
-  return  this.http.get<Array<Post>>('https://jsonplaceholder.typicode.com/xyz')
+  getPosts():Observable <Post[]>{
+  return  this.http.get<Array<Post>>('https://jsonplaceholder.typicode.com/posts')
   }
 
   /**pobieramy jeden post podając id */
