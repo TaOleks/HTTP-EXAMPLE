@@ -1,18 +1,30 @@
 import { Injectable } from '@angular/core';
 import { Post } from './app.component';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import {HttpClient, HttpParams} from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
+private postsObs = new BehaviorSubject<Array<Post>>([])
+posts$ = this.postsObs.asObservable()
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) {
+    this.getPosts()
+  }
 
   /**Pobieramy wszystkie posty */
-  getPosts():Observable <Post[]>{
-  return  this.http.get<Array<Post>>('https://jsonplaceholder.typicode.com/posts')
+  getPosts(){
+  return  this.http.get<Array<Post>>('https://jsonplaceholder.typicode.com/posts').subscribe(
+    posts =>{
+      this.postsObs.next(posts)
+    },
+    err =>{
+      console.log(err)
+    }
+  );
+
   }
 
   /**pobieramy jeden post podając id */

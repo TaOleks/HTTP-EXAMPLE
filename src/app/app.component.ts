@@ -10,11 +10,13 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  allPosts$: Observable<Array<Post>> | undefined
-  constructor(private httpService: HttpService) { }
+  allPosts$: Observable<Array<Post>> |undefined
+  constructor(private httpService: HttpService) {
+
+  }
 
   getPosts() {
-    this.allPosts$ = this.httpService.getPosts()
+    this.allPosts$ = this.httpService.posts$
   }
 
   getPost() {
