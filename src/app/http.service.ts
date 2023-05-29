@@ -35,6 +35,7 @@ export class HttpService {
 
   /**Usuwamy post */
   deletePost(id: number){
+    return this.http.delete<Post>('https://jsonplaceholder.typicode.com/posts/' + id)
   }
 
   /**Actualizuemy pola w post */

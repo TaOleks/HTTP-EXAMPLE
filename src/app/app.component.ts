@@ -48,7 +48,9 @@ this.httpService.updatePost(p).subscribe(post =>{
 })
 }
 deletePost() {
-
+this.httpService.deletePost(1).subscribe(post =>{
+  console.log(post)
+})
 }
 changePost() {
   const p: Post = ({
